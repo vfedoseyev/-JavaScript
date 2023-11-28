@@ -851,6 +851,70 @@ let etoHuiza = 'aaa bbb ccc';
 
 let etoArHu = etoHuiza.split(' ').map(item => item[0].toUpperCase() + item.slice(1));
 
-console.log(etoArHu.join(' '));
+// console.log(etoArHu.join(' '));
 
 
+// №1
+
+// Дана некоторая строка, например, вот такая:
+
+// '023m0df0dfg0'
+// Получите массив позиций всех нулей в этой в строке.
+
+let govn = '023m0df0dfg0';
+
+let zeroPositions = [];
+for (let i = 0; i < govn.length; i++) {
+    if (govn[i] === '0') {
+        zeroPositions.push(i);
+    }
+}
+
+// console.log(zeroPositions);
+
+// №2
+
+// Дана некоторая строка:
+
+// 'abcdefg'
+// Удалите из этой строки каждый третий символ. В нашем случае должно получится следующее:
+
+// 'abdeg'
+
+let strign = 'abcdefg';
+
+let result7 = '';
+for (let i = 0; i < strign.length; i++) {
+    if ((i + 1) % 3 !== 0) {
+        result7 += strign[i];
+    }
+}
+
+// console.log(result7);
+
+// №3
+
+// Дан некоторый массив, например, вот такой:
+
+// [1, 2, 3, 4, 5, 6]
+// Поделите сумму элементов, стоящих на четных позициях, на сумму элементов, стоящих на нечетных позициях.
+
+let arr13 = [1, 2, 3, 4, 5, 6];
+
+function divideSum(arr) {
+    let sumEven = 0;
+    let sumOdd = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (i % 2 === 0) {
+            sumEven += arr[i];
+        } else {
+            sumOdd += arr[i];
+        }
+    }
+
+    return sumEven / sumOdd;
+}
+
+let result14 = divideSum(arr13);
+console.log(result14);
