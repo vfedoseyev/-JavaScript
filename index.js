@@ -356,7 +356,7 @@ let getStrArrayNum = (num) => {
     return Array.from(String(num), Number);
 }
 let number = 12345;
-let arrayOfDigits = getArrayOfDigits(number);
+let arrayOfDigits = getStrArrayNum(number);
 // console.log(arrayOfDigits); 
 
 // №3
@@ -401,3 +401,238 @@ let resultSum = sumNumber(nbr);
 // №1
 
 // Заполните массив целыми числами от 1 до 10.
+
+function fillArray(arr) {
+    arr = []
+    for (i = 1; i <= 10; i++) {
+        arr.push(i)
+    }
+    return arr
+}
+
+let resultArray = fillArray();
+// console.log(resultArray);
+
+
+// №2
+
+// Заполните массив четными числами из промежутка от 1 до 100.
+
+function fillArray2() {
+    let arr = [];
+    for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+            arr.push(i);
+        }
+    }
+    return arr;
+}
+
+let resultArray2 = fillArray2();
+// console.log(resultArray2);
+
+// №3
+
+// Дан массив с дробями:
+
+// [1.456, 2.125, 3.32, 4.1, 5.34]
+// Округлите эти дроби до одного знака в дробной части.
+
+let fractions = [1.456, 2.125, 3.32, 4.1, 5.34];
+
+let roundedFractions = fractions.map(num => parseFloat(num.toFixed(1)));
+
+// console.log(roundedFractions);
+
+// №1
+
+// Дан массив со строками. Оставьте в этом массиве только те строки, которые начинаются на http://.
+
+let arr = ['http://www', 'https://dom', '1http://vova', 's http://its']
+
+function filterArr(arr) {
+    let filt = arr.filter(function (item) {
+        return item.startsWith('http://')
+    })
+    return filt
+}
+
+arr = filterArr(arr)
+// console.log(arr)
+
+
+//№2
+
+// Дан массив со строками. Оставьте в этом массиве только те строки, которые заканчиваются на .html.
+
+let arr2 = ['https://code.mu/html', 'https://code.mu/.html', 'https://code.mu/.htm']
+
+function filterArrEnd(arr) {
+    let filt = arr.filter(function (item) {
+        return item.endsWith('.html')
+    })
+    return filt
+}
+
+arr2 = filterArrEnd(arr2)
+// console.log(arr2)
+
+// №3
+
+// Дан массив с числами. Увеличьте каждое число из массива на 10 процентов.
+
+let fractions23 = [1, 2.1, 3.3, 4.1654, 5.399994];
+
+let mul = arr => arr.map(item => item * 1.1);
+
+let fractions2 = mul(fractions23);
+// console.log(fractions2);
+
+
+// №1
+
+// Заполните массив случайными числами из промежутка от 1 до 100.
+
+function arrRandom(arr) {
+    let random = []
+    for (i = 0; i < 100; i++) {
+        let rand = Math.random()
+        random.push(Math.round(rand))
+    }
+    return random
+}
+random = arrRandom()
+// console.log(random);
+
+// №2
+
+// Дано некоторое число:
+
+// 12345
+// Выведите в консоль все его символы с конца.
+
+function reverseNumber(num) {
+    let numToStr = num.toString();
+    let reversedStr = numToStr.split('').reverse().join('');
+    return reversedStr;
+}
+
+let rev = reverseNumber(12345);
+// console.log(rev);
+
+
+// №3
+
+// Дан некоторый массив, например, вот такой:
+
+// [1, 2, 3, 4, 5, 6]
+// По очереди выведите в консоль подмассивы из двух элементов нашего массива:
+
+// [1, 2]
+// [3, 4]
+// [5, 6]
+
+function printSubarrays(arr) {
+    while (arr.length) {
+        let subarray = arr.splice(0, 2);
+        // console.log(subarray);
+    }
+}
+
+let originalArray = [1, 2, 3, 4, 5, 6];
+printSubarrays(originalArray);
+
+
+// №4
+
+// Даны два массива:
+
+// let arr1 = [1, 2, 3];
+// let arr2 = [4, 5, 6];
+// Слейте эти массивы в новый массив:
+
+// [1, 2, 3, 4, 5, 6]
+
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+
+// const onetwo = [...array1, ...array2]
+const onetwo = array1.concat(array2)
+
+// console.log(onetwo);
+
+
+// Часть 2
+
+// №1
+
+// Дана некоторая строка. Найдите позицию первого нуля в строке.
+
+let indexOfString = (str) => {
+    return str.indexOf('0')
+}
+
+let findZero = indexOfString("0lkjhgyu")
+// console.log(findZero);
+
+// №2
+
+// Выведите в консоль все числа в промежутке от 1 до 1000, 
+// сумма первой и второй цифры которых равна пяти.
+for (let i = 1; i <= 1000; i++) {
+    let numString = i.toString();
+
+    if (numString.length >= 2) {
+        let firstDigit = parseInt(numString[0]);
+        let secondDigit = parseInt(numString[1]);
+
+        if (firstDigit + secondDigit === 5) {
+            // console.log(i);
+        }
+    }
+}
+
+// №3
+
+// Дан массив. Удалите из него элементы с заданным значением.
+
+let etochto = [1, 2, 3, 4, 5, 6];
+// let valueToRemove = 3;
+
+// let newArray = etochto.filter(item => item !== valueToRemove);
+
+function fillArray3(arr, x) {
+    let newArray = arr.filter(item => item !== x);
+    return newArray
+}
+let sss = fillArray3(etochto, 5)
+// console.log(sss);
+
+// №4
+
+// Дан некоторый массив, например, вот такой:
+
+// [1, 2, 3, 4, 5, 6]
+// Найдите сумму первой половины элементов этого массива.
+
+let vovtakvot = [1, 2, 3, 4, 5, 6];
+
+
+let halfSum = (arr) => {
+    let sum = 0;
+    for (let i = 0; i < arr.length / 2; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+let result5 = halfSum(vovtakvot);
+console.log(result5);
+
+
+// №1
+
+// Дан массив с числами. Подсчитайте количество отрицательных чисел в этом массиве.
+
+let vovtakvot2 = [1, 2, 3, 4, 5, 6];
+
