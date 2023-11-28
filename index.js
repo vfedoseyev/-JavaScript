@@ -627,12 +627,67 @@ let halfSum = (arr) => {
 }
 
 let result5 = halfSum(vovtakvot);
-console.log(result5);
+// console.log(result5);
 
 
 // №1
 
 // Дан массив с числами. Подсчитайте количество отрицательных чисел в этом массиве.
 
-let vovtakvot2 = [1, 2, 3, 4, 5, 6];
+let vovtakvot2 = [1, -2, 3, 4, -5, 6];
 
+function countNegativeNumbers(arr) {
+    let negativeNumbers = arr.filter(item => item < 0);
+    return negativeNumbers.length;
+}
+
+let kjh = countNegativeNumbers(vovtakvot2);
+// console.log(kjh);
+
+
+// №2
+
+// Дан массив с числами. Оставьте в нем только положительные числа.
+
+let vovtakvot3 = [1, -2, 3, 4, -5, 6];
+
+function countNegativeNumbers(arr) {
+    let negativeNumbers = arr.filter(item => item > 0);
+    return negativeNumbers;
+}
+
+let iii = countNegativeNumbers(vovtakvot2);
+// console.log(iii);
+
+// №3
+
+// Дана строка. Удалите предпоследний символ из этой строки.
+
+let removeLastChar = (str) => str = str.slice(0, -1)
+
+let iu = removeLastChar('sdfghjk')
+console.log(iu);
+
+
+// №4
+
+// Дан некоторый массив, например, вот такой:
+
+// [1, 2, 3, 4, 5, 6]
+// Поделите сумму первой половины элементов этого массива на сумму второй половины элементов.
+
+let vovtakvot4 = [1, 2, 3, 4, 5, 6];
+
+let divHalfArr = (arr) => {
+    let sum1 = 0;
+    let sum2 = 0;
+    for (let i = 0; i < arr.length / 2; i++) {
+        sum1 += arr[i];
+    }
+    for (let i = arr.length / 2; i < arr.length; i++) {
+        sum2 += arr[i];
+    }
+    return sum1 + sum2;
+}
+let result65 = divHalfArr(vovtakvot4);
+// console.log(result65);
