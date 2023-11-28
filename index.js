@@ -761,3 +761,96 @@ let date = {
 };
 // console.log(date)
 
+// №1
+
+// Дана некоторая строка с буквами и цифрами. Получите позицию первой цифры в этой строке.
+
+let netoday = 'fssfjs2025-12-31';
+
+let firstNumber1 = (str) => {
+    for (let i = 0; i < str.length; i++) {
+        if (!isNaN(str[i])) {
+            return i;
+        }
+    }
+    return -1; // Возвращаем -1, если цифра не найдена
+};
+
+let position = firstNumber1(netoday);
+// console.log(position);
+
+// №2
+
+// Дан объект с ключами и значениями. Запишите в первый массив ключи объекта, а во второй - значения.
+
+let date2 = {
+    year: '2025',
+    month: '12',
+    day: '31',
+}
+
+let dateKeys = Object.keys(date2);
+let dateValues = Object.values(date2);
+let dateEntries = Object.entries(date2);
+
+// console.log(dateKeys);
+// console.log(dateValues);
+// console.log(dateEntries);
+
+// №3
+
+// Дано число. Выведите в консоль количество четных цифр в этом числе.
+
+let someNumber = 187609387098543423456789;
+
+function countEvenDigits(num) {
+    let numStr = num.toString();
+    let numArr = numStr.split('').map(Number);
+    let evenDigits = numArr.filter(digit => digit % 2 === 0);
+    return evenDigits.length;
+}
+
+let result6 = countEvenDigits(someNumber);
+// console.log(result6);
+
+// №4
+
+// Дана некоторая строка:
+
+// 'abcde'
+// Переведите в верхний регистр все нечетные буквы этой строки. В нашем случае должно получится следующее:
+
+// 'AbCdE'
+
+let huiza = 'abcde';
+
+let upperHuyapper = (str) => {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        if (i % 2 !== 0) {
+            result += str[i].toUpperCase();
+        } else {
+            result += str[i];
+        }
+    }
+    return result;
+};
+let lkjhgf = upperHuyapper(huiza)
+// console.log(lkjhgf);
+
+// №5
+
+// Дана некоторая строка со словами:
+
+// 'aaa bbb ccc'
+// Сделайте заглавным первый символ каждого слова в этой строке. В нашем случае должно получится следующее:
+
+// 'Aaa Bbb Ccc'
+
+let etoHuiza = 'aaa bbb ccc';
+
+let etoArHu = etoHuiza.split(' ').map(item => item[0].toUpperCase() + item.slice(1));
+
+console.log(etoArHu.join(' '));
+
+
