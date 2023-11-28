@@ -666,7 +666,7 @@ let iii = countNegativeNumbers(vovtakvot2);
 let removeLastChar = (str) => str = str.slice(0, -1)
 
 let iu = removeLastChar('sdfghjk')
-console.log(iu);
+// console.log(iu);
 
 
 // №4
@@ -691,3 +691,73 @@ let divHalfArr = (arr) => {
 }
 let result65 = divHalfArr(vovtakvot4);
 // console.log(result65);
+
+// №1
+
+// Даны два слова. Проверьте, что последняя буква первого слова совпадает с первой буквой второго слова.
+
+function eqLetter(str1, str2) {
+    (str1[str1.length - 1] === str2[0]) ? console.log('normas') : console.log('ti oshibsya');
+}
+
+// eqLetter('sfhsfijhsf', 'kdjfhbad');
+
+// №2
+
+// Дана некоторая строка. Найдите позицию третьего нуля в строке.
+
+let findThirdZero = (str) => {
+    let thirdZeroIndex = str.indexOf('0', str.indexOf('0', str.indexOf('0') + 1) + 1);
+    if (thirdZeroIndex !== -1) {
+        console.log('Позиция третьего нуля: ' + thirdZeroIndex);
+    } else {
+        console.log('Третьего нуля нет в строке.');
+    }
+}
+
+// findThirdZero('012340567890');
+
+// №3
+
+// Даны числа, разделенные запятыми:
+
+// '12,34,56'
+// Найдите сумму этих чисел.
+
+let x = '12,34,56';
+
+let numSum = (str) => {
+    let numbers = str.split(',').map(Number);
+    let sum = numbers.reduce((a, b) => a + b, 0);
+    return sum;
+}
+// console.log(numSum(x))
+
+// №4
+
+// Дана дата в следующем формате:
+
+// '2025-12-31'
+// Преобразуйте эту дату в следующий объект:
+
+// {
+// 	year: '2025',
+// 	month: '12',
+// 	day: '31',
+// }
+let today = '2025-12-31'
+
+// let dateFormat = today.split('-')
+// let date = {
+//     year: dateFormat[0],
+//     month: dateFormat[1],
+//     day: dateFormat[2],
+// }
+let [year, month, day] = today.split('-');
+let date = {
+    year,
+    month,
+    day,
+};
+// console.log(date)
+
