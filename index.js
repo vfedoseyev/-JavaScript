@@ -917,4 +917,59 @@ function divideSum(arr) {
 }
 
 let result14 = divideSum(arr13);
-console.log(result14);
+// console.log(result14);
+
+
+// №1
+
+// Дана некоторая строка с буквами и цифрами. Получите массив позиций всех цифр из этой строки.
+
+let etostroka = '023m0df0dfg0';
+let numberPosition = [];
+
+for (let i = 0; i < etostroka.length; i++) {
+    if (!isNaN(etostroka[i])) {
+        numberPosition.push(i);
+    }
+}
+
+// console.log(numberPosition);
+
+// №2
+
+// Дан массив с некоторыми числами, например, вот такой:
+
+// [123, 456, 789]
+// Напишите код, который перевернет числа в этом массиве по следующему принципу:
+
+// [321, 654, 987]
+
+let arr1 = [123, 456, 789];
+
+let reversedArr = arr1.map(num => parseInt(num.toString().split('').reverse().join('')));
+
+// console.log(reversedArr);
+
+// №3
+
+// Дана некоторая строка с числом:
+
+// '1234567'
+// Отделите тройки цифр пробелами, начиная с конца числа. В нашем случае должно получится следующее:
+
+// '1 234 567'
+
+let teststr = '1234567';
+let result8 = '';
+
+for (let i = teststr.length - 1, count = 0; i >= 0; i--) {
+    result8 = teststr[i] + result8;
+    count++;
+    if (count === 3 && i !== 0) {
+        result8 = ' ' + result8;
+        count = 0;
+    }
+}
+
+// console.log(result8);
+
