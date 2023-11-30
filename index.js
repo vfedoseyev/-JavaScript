@@ -973,3 +973,82 @@ for (let i = teststr.length - 1, count = 0; i >= 0; i--) {
 
 // console.log(result8);
 
+// №4
+
+// Дана некоторая строка:
+
+// 'AbCdE'
+// Смените регистр букв этой строки на противоположный. В нашем случае должно получится следующее:
+
+// 'aBcDe'
+
+let strAbC = 'AbCdE';
+let newStrAbC = '';
+
+for (let i = 0; i < strAbC.length; i++) {
+    if (strAbC[i] === strAbC[i].toUpperCase()) {
+        newStrAbC += strAbC[i].toLowerCase();
+    } else {
+        newStrAbC += strAbC[i].toUpperCase();
+    }
+}
+
+// console.log(newStrAbC);
+
+// №5
+
+// Дан некоторый массив с числами, например, вот такой:
+
+// [1, 2, 3, 4, 5, 6]
+// Слейте пары элементов вместе:
+
+// [12, 34, 56]
+
+
+let arr21 = [1, 2, 3, 4, 5, 6];
+let newarr21 = [];
+
+for (let i = 0; i < arr21.length; i += 2) {
+    if (i + 1 < arr21.length) {
+        let mergedPair = Number('' + arr21[i] + arr21[i + 1]);
+        newarr21.push(mergedPair);
+    } else {
+        newarr21.push(arr21[i]);
+    }
+}
+
+// console.log(newarr21);
+
+
+// №6
+
+// Дана некоторая строка со словами:
+
+// 'aaa bbb ccc eee fff'
+// Сделайте заглавным первый символ каждого второго слова в этой строке. В нашем случае должно получится следующее:
+
+// 'aaa Bbb ccc Eee fff'
+
+let strABCEF = 'aaa bbb ccc eee fff';
+
+let newABCE = strABCEF.split(' ').map((word, index) => {
+    if (index % 2 !== 0) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+    return word;
+}).join(' ');
+
+console.log(newABCE);
+
+
+// №1
+
+// Дана некоторая строка:
+
+// 'a bc def ghij'
+// Переведите в верхний регистр все подстроки, в которых количество букв меньше или равно трем. В нашем случае должно получится следующее:
+
+// 'A BC DEF ghij'
+
+let govABD = 'a bc def ghij'
+
