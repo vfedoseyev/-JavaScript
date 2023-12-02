@@ -1046,7 +1046,7 @@ let newABCE = strABCEF.split(' ').map((word, index) => {
 // Дана некоторая строка:
 
 // 'a bc def ghij'
-// Переведите в верхний регистр все подстроки, в которых количество букв меньше или равно трем. В нашем случае должно получится следующее:
+// Переведите в верхний регистр первый символ всех подстрок, в которых количество букв меньше или равно трем. В нашем случае должно получится следующее:
 
 // 'A BC DEF ghij'
 
@@ -1057,4 +1057,188 @@ let newGonStr = govABD.split(' ').map(item => {
     return item
 })
 
-console.log(newGonStr)
+// console.log(newGonStr)
+
+
+// №1.1
+
+// Дана некоторая строка:
+
+// 'a bc def ghij'
+// Переведите в верхний регистр все подстроки, в которых количество букв меньше или равно трем. В нашем случае должно получится следующее:
+
+// 'A BC DEF ghij'
+
+let govABD1 = 'a bc def ghij'
+
+let newGonStr1 = govABD.split(' ').map(item => {
+    (item.length <= 3) ? item = item.toUpperCase() : item
+    // return item
+})
+
+// console.log(newGonStr1)
+
+// №2
+
+// Дан символ. Узнайте, в каком регистре этот символ - в верхнем или нижнем.
+let isRegister = (str) => {
+    console.log(str === str.toUpperCase() ? 'eto verhny registr' : 'eto nizhny registr');
+}
+
+// isRegister('s');
+
+
+// №3
+
+// Дано некоторое число, например, такое:
+
+// 123789
+// Удалите из этого числа все нечетные цифры. В нашем случае получится такой результат:
+
+// 28
+
+let filtChislo = (num) => {
+    let newNum = num.toString().split('').map(item => {
+        if (parseInt(item) % 2 === 0) {
+            return item;
+        }
+    }).join('');
+    console.log(newNum);
+}
+
+// filtChislo(123789);
+
+// №1
+// Дана строка с буквами. Проверьте, что в этой строке не более двух заглавных букв.
+
+
+let filtStr1 = (str) => {
+    let uppercaseLetters = str.split('').filter(item => item === item.toUpperCase());
+
+    if (uppercaseLetters.length <= 2) {
+        console.log('В строке не более двух заглавных букв.');
+    } else {
+        console.log('В строке более двух заглавных букв.');
+    }
+}
+
+// filtStr1('SSDkjh');
+
+// №2
+
+// Дана некоторая строка:
+
+// '1 22 333 4444 22 5555 1'
+// Удалите из этой строки все подстроки, в которых количество символов больше трех. В нашем случае должно получится следующее:
+
+// '1 22 333 22 1'
+
+let filtStr = (str) => {
+    newStr = str.split(' ').filter(item => item.length <= 3).join(' ')
+    console.log(newStr)
+}
+
+// filtStr('1 22 333 4444 22 5555 1');
+
+
+// №3
+
+// Даны два массива:
+
+let arr11 = [1, 2, 3];
+let arr22 = ['a', 'b', 'c'];
+// Слейте эти массивы в новый массив следующим образом:
+
+let arr33 = arr11.slice(0, 2).concat(arr22, arr11.slice(2));
+// console.log(arr33);
+
+// [1, 2, 'a', 'b', 'c', 3]
+
+// №1
+
+// Дано некоторое число:
+
+// 123456
+// Найдите сумму пар цифр этого числа. В нашем случае имеется ввиду следующее:
+
+// 12 + 34 + 56
+
+let sumPair = (num) => {
+    let numArray = num.toString().split('').map(item => parseInt(item));
+    let res = [];
+    for (let i = 0; i < numArray.length - 1; i += 2) {
+        res.push(numArray[i] + numArray[i + 1]);
+    }
+    // console.log(res);
+}
+
+// sumPair(123465456);
+
+// №2
+
+// Дан массив с числами:
+
+let arrVotTakVot = [1, 2, 3, 4, 5]
+
+// Выведите в консоль элементы этого массива в обратном порядке.
+
+let reverseVotTakVot = arrVotTakVot.reverse()
+
+// console.log(reverseVotTakVot)
+
+// Уровень 2.10 задачника JavaScript
+// №1
+
+// Дана строка с буквами и цифрами. Проверьте, что в этой строке не более трех букв.
+
+let isNotThreeLetters = (str) => {
+    let letters = str.split('').filter(char => /[a-zA-Z]/.test(char)).join('');
+
+    if (letters.length < 3) {
+        console.log('Не более трех букв');
+    } else {
+        console.log('Больше трех букв');
+    }
+}
+
+// isNotThreeLetters('lkrt9876');
+
+// №2
+
+// Дано число. Получите первую четную цифру с конца этого числа.
+
+let xxl = 9876;
+
+let firstChetnoe = xxl.toString().split('').reverse().find(item => parseInt(item) % 2 === 0);
+
+// console.log(firstChetnoe);
+
+// №3
+
+// Дана некоторая строка:
+
+let nekaya = 'abcde abcde abcde'
+
+// Замените в ней первый символ каждого слова на '!':
+
+// '!bcde !bcde !bcde'
+
+let newNekaya = nekaya.split(' ').map(item => '!' + item.slice(1)).join(' ');
+
+// console.log(newNekaya);
+
+
+// №4
+
+// Дан массив с числами:
+
+let huArray = [1, 2, 3, 3, 4, 5]
+
+// Проверьте, что в этом массиве есть два одинаковых элемента подряд.
+
+for (let i = 0; i < huArray.length - 1; i++) {
+    if (huArray[i] === huArray[i + 1]) {
+        console.log('Есть два одинаковых элемента подряд');
+    }
+}
+
