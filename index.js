@@ -1038,7 +1038,7 @@ let newABCE = strABCEF.split(' ').map((word, index) => {
     return word;
 }).join(' ');
 
-console.log(newABCE);
+// console.log(newABCE);
 
 
 // №1
@@ -1052,3 +1052,9 @@ console.log(newABCE);
 
 let govABD = 'a bc def ghij'
 
+let newGonStr = govABD.split(' ').map(item => {
+    (item.length <= 3) ? item = item.charAt(0).toUpperCase() + item.slice(1) : item
+    return item
+})
+
+console.log(newGonStr)
