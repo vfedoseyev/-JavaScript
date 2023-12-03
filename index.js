@@ -1238,7 +1238,28 @@ let huArray = [1, 2, 3, 3, 4, 5]
 
 for (let i = 0; i < huArray.length - 1; i++) {
     if (huArray[i] === huArray[i + 1]) {
-        console.log('Есть два одинаковых элемента подряд');
+        // console.log('Есть два одинаковых элемента подряд');
     }
 }
 
+// Уровень 3.1 задачника JavaScript
+// №1
+
+// Дано некоторое число. Проверьте, что цифры этого числа расположены по возрастанию.
+
+function checkDigitsAscending(number) {
+    let strNumber = number.toString();
+
+    let digits = strNumber.split('');
+
+    for (let i = 0; i < digits.length - 1; i++) {
+        if (parseInt(digits[i]) >= parseInt(digits[i + 1])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+let result52 = checkDigitsAscending(1243);
+// console.log(result52);
