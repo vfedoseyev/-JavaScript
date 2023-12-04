@@ -12,6 +12,7 @@ function checkNegative(number) {
         // console.log('Число положительное');
     }
 }
+checkNegative();
 
 // №2
 

@@ -9,11 +9,16 @@
 </head>
 
 <body>
-    <div id="forms-container"></div>
+    <div>
+        <label for="paramInput">Введите параметры (разделите запятой):</label>
+        <input type="text" id="paramInput">
+        <button onclick="executeAndDisplayResults()">Выполнить функции</button>
+    </div>
+
+    <div id="output"></div>
 
     <script src="index.js"></script>
     <script src="script.js"></script>
-    <script src="createForm.js"></script>
 </body>
 
 </html>
