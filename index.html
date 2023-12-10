@@ -3,22 +3,56 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Угадай число</title>
 </head>
 
 <body>
-    <div>
-        <label for="paramInput">Введите параметры (разделите запятой):</label>
-        <input type="text" id="paramInput">
-        <button onclick="executeAndDisplayResults()">Выполнить функции</button>
-    </div>
+    <h1>Игра "Угадай число"</h1>
+    <p>Компьютер загадывает число от 1 до 100. Попробуйте угадать!</p>
 
-    <div id="output"></div>
+    <label for="guessInput">Ваш вариант:</label>
+    <input type="text" id="guessInput">
+    <button id="checkButton">Проверить</button>
+    <p id="hint"></p>
 
-    <script src="index.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Генерация случайного числа от 1 до 100
+        var secretNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Получение элементов
+        var guessInput = document.getElementById("guessInput");
+        var checkButton = document.getElementById("checkButton");
+
+        // Добавление слушателей событий
+        guessInput.addEventListener("keypress", handleKeyPress);
+        checkButton.addEventListener("click", checkGuess);
+
+        // Обработчик события нажатия клавиши "Enter"
+        function handleKeyPress(event) {
+            if (event.keyCode === 13) {
+                checkGuess();
+            }
+        }
+
+        // Проверка введенного числа
+        function checkGuess() {
+            var guess = parseInt(guessInput.value);
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                alert("Пожалуйста, введите число от 1 до 100.");
+                return;
+            }
+
+            if (guess === secretNumber) {
+                alert("Поздравляем! Вы угадали число!");
+            } else if (guess < secretNumber) {
+                document.getElementById("hint").textContent = "Введите число побольше.";
+            } else {
+                document.getElementById("hint").textContent = "Введите число поменьше.";
+            }
+        }
+    </script>
 </body>
 
 </html>
