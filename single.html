@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай ячейку</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Игра "Угадай ячейку"</h1>
+    <p>Кликайте на ячейки и попробуйте угадать, где спрятаны клетки!</p>
+
+    <table id="gameTable"></table>
+
+    <script>
+        var rows = 10;
+        var columns = 10;
+        var totalCells = rows * columns;
+        var cellsToGuess = 10;
+        var cellsGuessed = 0;
+
+        // Генерация случайных координат для клеток
+        var randomCells = [];
+        while (randomCells.length < cellsToGuess) {
+            var randomCell = Math.floor(Math.random() * totalCells);
+            if (!randomCells.includes(randomCell)) {
+                randomCells.push(randomCell);
+            }
+        }
+
+        // Создание таблицы
+        var table = document.getElementById("gameTable");
+        for (var i = 0; i < rows; i++) {
+            var row = table.insertRow(i);
+            for (var j = 0; j < columns; j++) {
+                var cell = row.insertCell(j);
+                cell.setAttribute("data-index", i * columns + j);
+                cell.onclick = handleClick;
+            }
+        }
+
+        // Обработчик клика по ячейке
+        function handleClick() {
+            var cellIndex = parseInt(this.getAttribute("data-index"));
+
+            if (randomCells.includes(cellIndex)) {
+                this.style.backgroundColor = "green";
+                cellsGuessed++;
+
+                if (cellsGuessed === cellsToGuess) {
+                    alert("Поздравляем! Вы угадали все клетки!");
+                }
+            } else {
+                this.style.backgroundColor = "red";
+            }
+
+            // Отключаем обработчик клика после угадывания или ошибки
+            this.onclick = null;
+        }
+    </script>
+</body>
+
+</html>
